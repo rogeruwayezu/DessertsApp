@@ -3,8 +3,10 @@ import { View } from 'react-native';
 import  Header  from '../components/Header/Header';
 import { TabNavigator } from 'react-navigation'
 import { Container, Content } from 'native-base';
-import CardComponent from '../components/CardComponent/CardComponent'
-export default class Home extends Component {
+import GridViewComponent from '../components/GridViewComponent/GridViewComponent'
+
+
+export default class GridView extends Component {
   
     render() {
      return (
@@ -12,7 +14,7 @@ export default class Home extends Component {
           <Header />
           <Container>
               <Content>
-                  <CardComponent/>
+                  <GridViewComponent/>
               </Content>
           </Container>
         </View>
