@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
-
+import { View } from 'react-native';
 import  GridView from "./screens/GridView";
 import Home from "./screens/Home";
-import { Tabs } from "./config/routes";
-
-
+import  Root  from "./config/Routes";
+import Header from './components/Header/Header'
 class App extends Component{
     render() {
-        return <Tabs />
+
+        return (
+        <View style={{flex:1}}>
+            <Root/>
+        </View>
+        );
     }
 }
 

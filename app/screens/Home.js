@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import  Header  from '../components/Header/Header';
 import { TabNavigator } from 'react-navigation'
 import { Container, Content } from 'native-base';
-import CardComponent from '../components/CardComponent/CardComponent'
-export default class Home extends Component {
+import CardComponent from '../components/CardComponent/CardComponent';
+import { StackNavigator } from 'react-navigation';
+import { Details } from '../screens/Details';
+
+ class Home extends Component {
   
     render() {
      return (
         <View style={{flex: 1}}>
-          <Header />
+          <Header currentScr="all" onPress={() => this.props.navigation.navigate('GridView')} pressMe={() => this.props.navigation.navigate('Details')}/>
           <Container>
               <Content>
-                  <CardComponent/>
+              <TouchableOpacity onPress= {() => this.props.navigation.navigate('Details')}>
+                  <CardComponent />
+              </TouchableOpacity>
               </Content>
           </Container>
+          
         </View>
         
          );
     }
   }
-
+  export default Home;
