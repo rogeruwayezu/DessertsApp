@@ -15,7 +15,7 @@ import { Details } from '../screens/Details';
           <Header currentScr="all" onPress={() => this.props.navigation.navigate('Home')} pressMe={() => this.props.navigation.navigate('GridView')}/>
           <Container>
               <Content>
-              <TouchableOpacity onPress= {() => this.props.navigation.navigate('GridView')}>
+              <TouchableOpacity onPress= {() => this.props.navigation.navigate('Details')}>
                   <CardComponent />
               </TouchableOpacity>
               </Content>
