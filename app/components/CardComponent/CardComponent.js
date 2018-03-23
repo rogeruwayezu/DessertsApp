@@ -26,6 +26,7 @@ class CardComponent extends Component {
         return (
                 <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
                     <FlatList
+
                        data={this.state.data}
                         renderItem={({ item }) => (
                             <Card cardBody style={{flex:0.5}}>
