@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image, FlatList, ActivityIndicator } from "react-native";
+import { View, Text, StyleSheet, Image, FlatList, ActivityIndicator, TouchableOpacity } from "react-native";
 import styles from './styles';
 import { Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base';
 import { List, ListItem, SearchBar } from "react-native-elements";
@@ -28,11 +28,18 @@ class CardComponent extends Component {
                     <FlatList
                        data={this.state.data}
                         renderItem={({ item }) => (
-                        <ListItem
-                           title={`${item.strMeal}`}
-                           avatar={{ uri: item.strMealThumb }}
-                           containerStyle={{ borderBottomWidth: 0 }}
-                          />
+                            <Card cardBody style={{flex:0.5}}>
+                            <Thumbnail source={{uri: item.strMealThumb}} style={{height: 150, width: null,borderRadius: 0, flex:1}}/>
+                                <CardItem>
+                                    <Body >
+                                        <Text>{item.strMeal}</Text>
+                                         <View style={{flex: 0.3, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                                            <Text>{item.idMeal}</Text>
+                                            <Image resizeMode='contain' style={styles.icon} source={require('./images/favorite.png')} />
+                                         </View>
+                                    </Body>
+                                </CardItem>
+                            </Card>
                         )}
                         keyExtractor={item => item.idMeal}
                     />

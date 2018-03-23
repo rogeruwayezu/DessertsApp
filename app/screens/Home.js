@@ -12,10 +12,10 @@ import { Details } from '../screens/Details';
     render() {
      return (
         <View style={{flex: 1}}>
-          <Header currentScr="all" onPress={() => this.props.navigation.navigate('GridView')} pressMe={() => this.props.navigation.navigate('Details')}/>
+          <Header currentScr="all" onPress={() => this.props.navigation.navigate('Home')} pressMe={() => this.props.navigation.navigate('GridView')}/>
           <Container>
               <Content>
-              <TouchableOpacity onPress= {() => this.props.navigation.navigate('Details')}>
+              <TouchableOpacity onPress= {() => this.props.navigation.navigate('GridView')}>
                   <CardComponent />
               </TouchableOpacity>
               </Content>
