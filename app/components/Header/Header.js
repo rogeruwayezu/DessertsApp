@@ -6,7 +6,7 @@ import styles from './styles';
  class Header extends Component{
  
     render(){ 
-      const { onPress, pressMe, screen} = this.props
+      const { onPress, pressMe, currentScr } = this.props
         return(
       <View style={styles.viewStyle}> 
             <Image resizeMode='contain' style={styles.icon} source={require('./images/settings.png')} />
@@ -14,12 +14,12 @@ import styles from './styles';
             <TouchableOpacity 
               onPress= {onPress}
                 >
-               <Image resizeMode='contain' style={currentScr === "gridview"? styles.iconBar : styles.icon} source={require('./images/stream.png')} />
+               <Image resizeMode='contain' style={currentScr === "all"? styles.iconBar : styles.icon} source={require('./images/stream.png')} />
             </TouchableOpacity>
             <TouchableOpacity 
               onPress= {pressMe}
                 >
-              <Image resizeMode='contain' style={currentScr === "all"? styles.iconBar : styles.icon} source={require('./images/dashboard.png')} />
+              <Image resizeMode='contain' style={currentScr === "gridview"? styles.iconBar : styles.icon} source={require('./images/dashboard.png')} />
             </TouchableOpacity>
             </View>
             

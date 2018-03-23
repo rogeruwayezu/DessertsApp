@@ -10,7 +10,7 @@ export default class GridView extends Component {
     render() {
      return (
         <View style={{flex: 1}}>
-          <Header currentScr='gridview' pressMe={() => this.props.navigation.navigate('Details')}/>
+          <Header currentScr='gridview' onPress={() => this.props.navigation.navigate('Home')} pressMe={() => this.props.navigation.navigate('GridView')}/>
           <Container>
               <Content>
                   <GridViewComponent/>
