@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, TextInput, View, StyleSheet, Button, Text } from 'react-native';
+import { AsyncStorage, TextInput, View, StyleSheet, Button, Text, ImageBackground } from 'react-native';
 import { graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import TextField from "../components/TextField/TextField";
@@ -14,6 +14,8 @@ const defaultState = {
     errors: {},
     isSubmitting: false,   
 }
+
+const background = require("../components/TextField/images/signup_bg.png");
 
 class Signup extends Component {
 
@@ -62,10 +64,10 @@ onChangeText = (key, value) => {
      const {errors, values: {name, email, password}} = this.state;
      return (
         <View style={{flex: 1}}>
-         
-            <SubmitButton/>
-           
- 
+           <ImageBackground source={background} style={{flex: 1, paddingTop: 30, width: null, height: null}} resizeMode="cover" >
+               <TextField/> 
+               <SubmitButton/>
+           </ImageBackground>
         </View>
         
          );
