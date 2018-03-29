@@ -4,6 +4,7 @@ import { graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import TextField from "../components/TextField/TextField";
 import SubmitButton from "../components/SubmitButton/SubmitButton";
+import EmailField from "../components/EmailField/EmailField";
 
 const defaultState = {
     values: {
@@ -66,6 +67,7 @@ onChangeText = (key, value) => {
         <View style={{flex: 1}}>
            <ImageBackground source={background} style={{flex: 1, paddingTop: 30, width: null, height: null}} resizeMode="cover" >
                <TextField/> 
+               <EmailField/>
                <SubmitButton/>
            </ImageBackground>
         </View>
