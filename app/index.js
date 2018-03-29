@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { View } from 'react-native';
+
+import { ApolloProvider } from 'react-apollo';
+import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset';
+
 import  GridView from "./screens/GridView";
 import Home from "./screens/Home";
-import  Root  from "./config/Routes";
 import Header from './components/Header/Header'
+
+import  Root  from "./config/Routes";
+
+const client = new ApolloClient({
+    link: new HttpLink({ uri: 'http://192.168.1.77:4000' }),
+    cache: new InMemoryCache(),
+  });
+
+
 class App extends Component{
     render() {
 
         return (
         <View style={{flex:1}}>
-            <Root/>
+            <ApolloProvider client={client}>
+               <Root/>
+            </ApolloProvider>
         </View>
         );
     }
