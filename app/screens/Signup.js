@@ -3,7 +3,7 @@ import { AsyncStorage, TextInput, View, StyleSheet, Button, Text } from 'react-n
 import { graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import TextField from "../components/TextField/TextField";
-
+import SubmitButton from "../components/SubmitButton/SubmitButton";
 
 const defaultState = {
     values: {
@@ -27,26 +27,26 @@ submit = async () => {
     this.setState(({ isSubmitting: true }));
     let response;
     try {
-     response = await this.props.mutate({
+        response = await this.props.mutate({
         variables: this.state.values,
     });
     } catch (err) {
-      this.setState({
+        this.setState({
           errors: {
-              email: 'Already taken',
+            email: 'Already taken',
           },
           isSubmitting: false,
-      });
-      return;
-    }
+        });
+        return;
+      }
     await AsyncStorage.setItem("@demo/token", response.data.signup.token);
-    
+
     this.setState(defaultState);
-    this.props.history.push('/products');
+    this.props.navigation.navigate('Home');
 };
 
 goToLoginPage = () => {
-   this.props.history.push('/login');
+    this.props.navigation.navigate('GridView');
 };
 
 onChangeText = (key, value) => {
@@ -61,29 +61,11 @@ onChangeText = (key, value) => {
     render() {
      const {errors, values: {name, email, password}} = this.state;
      return (
-        <View style={{flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <View style={{width: 200}}>
-            <TextField 
-              name="name" 
-              onChangeText={this.onChangeText}
-              value={name}
-            />
-            {errors.email && <Text style={{ color: 'red' }} >{errors.email}</Text>}
-            <TextField 
-              name="email"  
-              onChangeText={this.onChangeText}
-              value={email}
-            />
-            <TextField 
-               name="password"
-               onChangeText={this.onChangeText}
-               secureTextEntry
-               value={password}
-            />
-            <Button title="Create Account" onPress={this.submit}/>
-            <Text style={{ textAlign: 'center'}}>Or</Text>
-            <Button title="Login" onPress={this.goToLoginPage} />
-          </View>
+        <View style={{flex: 1}}>
+         
+            <SubmitButton/>
+           
+ 
         </View>
         
          );

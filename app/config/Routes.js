@@ -6,7 +6,7 @@ import Header from '../components/Header/Header'
 import GridView from '../screens/GridView';
 import Details from '../screens/Details'
 import Signup from '../screens/Signup'
-
+import Login from '../screens/Login'
  const RootStack = StackNavigator({
     Home: {
         screen: Home,
@@ -23,7 +23,11 @@ import Signup from '../screens/Signup'
     Signup: {
         screen: Signup,
         navigationOptions:{ header:null}
-    }
+    },
+    Login: {
+        screen: Login,
+        navigationOptions:{ header:null}
+    },
 },
 {
     initialRouteName: 'Signup',

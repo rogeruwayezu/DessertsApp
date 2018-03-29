@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ImageBackground } from 'react-native'
+import {
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    Image,
+    TextInput,
+    TouchableOpacity,
+    ImageBackground
+  } from 'react-native'
 
 
-const background = require("./images/signup_bg.png");
-const backIcon = require("./images/back.png");
-const personIcon = require("./images/signup_person.png");
-const lockIcon = require("./images/signup_lock.png");
-const emailIcon = require("./images/signup_email.png");
-const birthdayIcon = require("./images/signup_birthday.png");
+const background = require("../components/TextField/images/signup_bg.png");
+const backIcon = require("../components/TextField/images/back.png");
+const personIcon = require("../components/TextField/images/signup_person.png");
+const lockIcon = require("../components/TextField/images/signup_lock.png");
+const emailIcon = require("../components/TextField/images/signup_email.png");
+const birthdayIcon = require("../components/TextField/images/signup_birthday.png");
 
 
 
-class TextField extends Component {
+class Login extends Component {
     render() {
       return (
         <View style={styles.container}>
@@ -209,5 +218,5 @@ class TextField extends Component {
     }
   })
   
-  export default TextField;
+  export default Login;
   
