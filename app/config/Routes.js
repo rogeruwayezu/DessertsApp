@@ -5,6 +5,7 @@ import Home from '../screens/Home';
 import Header from '../components/Header/Header'
 import GridView from '../screens/GridView';
 import Details from '../screens/Details'
+import Signup from '../screens/Signup'
 
  const RootStack = StackNavigator({
     Home: {
@@ -19,9 +20,13 @@ import Details from '../screens/Details'
         screen: GridView,
         navigationOptions:{ header:null}
     },     
+    Signup: {
+        screen: Signup,
+        navigationOptions:{ header:null}
+    }
 },
 {
-    initialRouteName: 'Home',
+    initialRouteName: 'Signup',
 },
 
 
