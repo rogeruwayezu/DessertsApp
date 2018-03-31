@@ -28,6 +28,7 @@
     "graphql-tag": "^2.8.0",
     "moment": "2.18.1",
     "native-base": "^2.3.10",
+    "prop-types": "^15.6.1",
     "react": "16.2.0",
     "react-apollo": "^2.1.1",
     "react-native": "0.52.0",

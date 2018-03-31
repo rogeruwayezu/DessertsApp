@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import { AppRegistry, StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
 
 
@@ -17,11 +18,23 @@ class EmailField extends Component {
                 style={[styles.input, styles.whiteFont]}
                 placeholder="Email"
                 placeholderTextColor="#FFF" 
+                underlineColorAndroid="transparent" 
+
+
+             
+               onChangeText={this.props.onChangeText}
+               value={this.props.value}
+
             />
         </View>
       );
     }
-  }
+  };
+
+  EmailField.propTypes = {
+    onChangeText: PropTypes.func,
+    value: PropTypes.string,
+};
 
 
   let styles = StyleSheet.create({
@@ -80,12 +93,12 @@ class EmailField extends Component {
       alignItems: 'center',
     },
     inputIcon: {
-      width: 30,
-      height: 30,
+      width: 25,
+      height: 25,
     },
     input: {
       flex: 1,
-      fontSize: 20,
+      fontSize: 15,
     },
     signup: {
       backgroundColor: '#FF3366',

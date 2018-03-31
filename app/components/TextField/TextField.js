@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import { AppRegistry, StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ImageBackground } from 'react-native'
 
 
@@ -27,11 +28,22 @@ class TextField extends Component {
           placeholder="Name"
           placeholderTextColor="#FFF"
           underlineColorAndroid='transparent' 
+          underlineColorAndroid="transparent" 
+
+
+          onChangeText={this.props.onChangeText}
+          value={this.props.value}
+
         />
       </View>
       );
     }
-  }
+  };
+
+ TextField.propTypes = {
+    onChangeText: PropTypes.func,
+    value: PropTypes.string,
+};
 
 
   let styles = StyleSheet.create({
@@ -90,12 +102,12 @@ class TextField extends Component {
       alignItems: 'center',
     },
     inputIcon: {
-      width: 30,
-      height: 30,
+      width: 25,
+      height: 25,
     },
     input: {
       flex: 1,
-      fontSize: 20,
+      fontSize: 15,
     },
     signup: {
       backgroundColor: '#FF3366',

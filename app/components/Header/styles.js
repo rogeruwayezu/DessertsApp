@@ -3,7 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 const styles = EStyleSheet.create({
     smallContainer: {
-        flex: 0.16,
+        flex: 0.19,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'

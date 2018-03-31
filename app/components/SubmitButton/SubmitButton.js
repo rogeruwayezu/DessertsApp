@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import { AppRegistry, StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 
 
@@ -6,7 +7,7 @@ class SubmitButton extends Component {
     render() {
       return (
             <View style={styles.footerContainer}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={this.props.onPress}>
                 <View style={styles.signup}>
                   <Text style={styles.whiteFont}>Join</Text>
                 </View>
@@ -20,7 +21,11 @@ class SubmitButton extends Component {
             </View>
       );
     }
-  }
+  };
+
+  SubmitButton.propTypes = {
+    onPress: PropTypes.func,
+};
 
 
   let styles = StyleSheet.create({
