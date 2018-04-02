@@ -12,7 +12,7 @@ import Header from './components/Header/Header'
 import  Root  from "./config/Routes";
 
 const client = new ApolloClient({
-    link: new HttpLink({ uri: 'http://192.168.1.77:4000' }),
+    link: new HttpLink({ uri: 'http://192.168.42.109:4000' }),
     cache: new InMemoryCache(),
   });
 
