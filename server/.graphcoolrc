@@ -1,0 +1,3 @@
+targets:
+  server: shared-us-west-2/cjfmc2elp4knw0125nrekr263
+  default: server

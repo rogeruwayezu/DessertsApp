@@ -30,7 +30,7 @@ import Login from '../screens/Login'
     },
 },
 {
-    initialRouteName: 'Signup',
+    initialRouteName: 'Login',
 },
 
 
