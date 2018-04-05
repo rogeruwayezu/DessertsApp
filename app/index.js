@@ -12,7 +12,7 @@ import Header from './components/Header/Header'
 import  Root  from "./config/Routes";
 
 const client = new ApolloClient({
-    link: new HttpLink({ uri: 'http://192.168.42.109:4000' }),
+    link: new HttpLink({ uri: 'https://api.graph.cool/simple/v1/cjfb78jkf8ffi0185cxjwgrhu' }),
     cache: new InMemoryCache(),
   });
 

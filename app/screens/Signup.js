@@ -53,7 +53,7 @@ submit = async () => {
         });
         return;
       }
-    await AsyncStorage.setItem("@demo/token", response.data.signup.token);
+    // await AsyncStorage.setItem("@demo/token", response.data.signup.token);
 
     console.log(response);
     this.setState(defaultState);
@@ -110,10 +110,13 @@ onChangeText = (key, value) => {
   }
 
 const signUpMutation = gql`
-mutation($name: String!, $email: String!, $password: String!){
-    signup(name: $name, email: $email, password: $password){
-        token
-    } 
+mutation ($email: String!, $name: String!,  $password: String!){
+  createUser(name: $name, authProvider: { email: { email: $email, password: $password } }){
+   id
+   name
+   email
+   password
+ }
 }
 `;
 
