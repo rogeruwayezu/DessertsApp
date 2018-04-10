@@ -3,9 +3,10 @@ import { AsyncStorage, TextInput, View, StyleSheet, Button, Text, ImageBackgroun
 import { graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import TextField from "../components/TextField/TextField";
-import SubmitButton from "../components/SubmitButton/SubmitButton";
+import SubmitButtonSigin from "../components/SubmitButtonSignin/SubmitButtonSignin"
 import EmailField from "../components/EmailField/EmailField";
 import PassWordField from "../components/PassWordField/PassWordField";
+import Logo from "../components/Logo/Logo";
 
 const defaultState = {
     values: {
@@ -16,7 +17,7 @@ const defaultState = {
     isSubmitting: false,   
 }
 
-const background = require("../components/TextField/images/signup_bg.png");
+const background = require("../components/TextField/images/backgd.jpg");
 const mark = require("../components/TextField/images/login1_mark.png");
 
 
@@ -34,21 +35,24 @@ onChangeText = (key, value) => {
     };
   
 submit = async () => {
+    const {email, password} = this.state.values
     // console.log(this.state.values)
     if (this.state.isSubmitting){
         return;
     }
-
-    this.setState(({ isSubmitting: true }));
+    if(!email || !password){
+      alert('please insert data')
+      this.setState(defaultState);
+    }
+    else{
+      this.setState(({ isSubmitting: true }));
        const response = await this.props.mutate({
         variables: this.state.values,
     });
-    
-    // await AsyncStorage.setItem("@demo/token", response.data.login.token);
-
-    console.log(response);
-    this.setState(defaultState);
+    // alert('boom')
     this.props.navigation.navigate('Home');
+    }
+    // await AsyncStorage.setItem("@demo/token", response.data.login.token);
 };
 
 goToSignupPage = () => {
@@ -70,9 +74,7 @@ onChangeText = (key, value) => {
         <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>
            <ImageBackground source={background} style={{flex: 1, paddingTop: 30, width: null, height: null}} resizeMode="cover" >
 
-                <View style={styles.markWrap}>
-                  <Image source={mark} style={styles.mark} resizeMode="contain" />
-                </View>
+                <Logo />
                 
                <EmailField
                  onChangeText={value => this.onChangeText('email', value)}
@@ -84,8 +86,9 @@ onChangeText = (key, value) => {
                   secureTextEntry
                   value={password}
                />
-               <SubmitButton 
+               <SubmitButtonSigin
                   onPress={this.submit}
+                  signupPage={() => this.props.navigation.navigate('Signup')}
                 />
 
            </ImageBackground>

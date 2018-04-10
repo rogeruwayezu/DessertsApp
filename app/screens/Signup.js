@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { AsyncStorage, TextInput, View, StyleSheet, Button, Text, ImageBackground, Image,  KeyboardAvoidingView } from 'react-native';
+import { AsyncStorage, TextInput, View, StyleSheet, Button, Text, ImageBackground, Image,  KeyboardAvoidingView, Dimensions } from 'react-native';
 import { graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import TextField from "../components/TextField/TextField";
 import SubmitButton from "../components/SubmitButton/SubmitButton";
 import EmailField from "../components/EmailField/EmailField";
 import PassWordField from "../components/PassWordField/PassWordField";
+import Logo from "../components/Logo/Logo"
+
+
 
 const defaultState = {
     values: {
@@ -17,8 +20,8 @@ const defaultState = {
     isSubmitting: false,   
 }
 
-const background = require("../components/TextField/images/signup_bg.png");
-const mark = require("../components/TextField/images/login1_mark.png");
+const background = require("../components/TextField/images/backgd.jpg");
+
 class Signup extends Component {
 
     state = defaultState;
@@ -76,14 +79,12 @@ onChangeText = (key, value) => {
     render() {
      const {errors, values: {name, email, password}} = this.state;
      return (
-        <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>
+       <View style={{flex: 1}}>
            <ImageBackground source={background} style={{flex: 1, paddingTop: 30, width: null, height: null}} resizeMode="cover" >
-         
-
-                <View style={styles.markWrap}>
-                  <Image source={mark} style={styles.mark} resizeMode="contain" />
-                </View>
            
+              <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>
+                <Logo/>
+                
                <TextField 
                  onChangeText={value => this.onChangeText('name', value)}
                  value={name}
@@ -99,11 +100,12 @@ onChangeText = (key, value) => {
                />
                <SubmitButton 
                   onPress={this.submit}
+                  loginPage={() => this.props.navigation.navigate('Login')}
                 />
-
+               </KeyboardAvoidingView>
            </ImageBackground>
            <View style={{ height: 15, backgroundColor: 'rgba(52, 52, 52, 0.7)' }} />
-           </KeyboardAvoidingView>
+        </View>
         
          );
     }

@@ -3,28 +3,30 @@ import PropTypes from "prop-types";
 import { AppRegistry, StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 
 
-class SubmitButton extends Component {
+class SubmitButtonSignin extends Component {
     render() {
-      const { loginPage } = this.props
+      const { signupPage } = this.props
       return (
             <View style={styles.footerContainer}>
               <TouchableOpacity onPress={this.props.onPress}>
                 <View style={styles.signup}>
-                  <Text style={styles.whiteFont}>Join</Text>
+                  <Text style={styles.whiteFont}>Signin</Text>
                 </View>
               </TouchableOpacity>
   
-              <TouchableOpacity onPress= { loginPage }> 
+              <TouchableOpacity onPress= { signupPage }> 
                 <View style={styles.signin}>
-                  <Text style={styles.greyFont}>Already have an account?<Text style={styles.whiteFont}> Sign In</Text></Text>
+                  <Text style={styles.greyFont}>Don't have an account?<Text style={styles.whiteFont}> Sign Up</Text></Text>
                 </View>
               </TouchableOpacity>
+
+
             </View>
       );
     }
   };
 
-  SubmitButton.propTypes = {
+  SubmitButtonSignin.propTypes = {
     onPress: PropTypes.func,
 };
 
@@ -112,4 +114,4 @@ class SubmitButton extends Component {
     }
   })
   
-  export default SubmitButton;
+  export default SubmitButtonSignin;
