@@ -7,7 +7,7 @@ import SubmitButton from "../components/SubmitButton/SubmitButton";
 import EmailField from "../components/EmailField/EmailField";
 import PassWordField from "../components/PassWordField/PassWordField";
 import Logo from "../components/Logo/Logo"
-
+import { USER_EMAIL, USER_ID, USER_NAME } from "../constants";
 
 
 const defaultState = {
@@ -56,11 +56,12 @@ submit = async () => {
         });
         return;
       }
-    // await AsyncStorage.setItem("@demo/token", response.data.signup.token);
+      await AsyncStorage.setItem(USER_ID, response.data.createUser.id);
+      await AsyncStorage.setItem(USER_NAME, response.data.createUser.name);
+      await AsyncStorage.setItem(USER_EMAIL, response.data.createUser.email);
 
-    console.log(response);
-    this.setState(defaultState);
-    this.props.navigation.navigate('Home');
+      this.setState(defaultState);
+      this.props.navigation.navigate('Home');
 };
 
 goToLoginPage = () => {

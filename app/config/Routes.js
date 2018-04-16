@@ -36,7 +36,7 @@ import newRecipe from '../screens/newRecipe';
     }
 },
 {
-    initialRouteName: 'NewRecipe',
+    initialRouteName: 'Home',
 },
 
 

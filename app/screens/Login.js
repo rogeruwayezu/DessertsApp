@@ -7,6 +7,7 @@ import SubmitButtonSigin from "../components/SubmitButtonSignin/SubmitButtonSign
 import EmailField from "../components/EmailField/EmailField";
 import PassWordField from "../components/PassWordField/PassWordField";
 import Logo from "../components/Logo/Logo";
+import { USER_EMAIL, USER_ID, TOKEN_KEY } from "../constants";
 
 const defaultState = {
     values: {
@@ -22,6 +23,13 @@ const mark = require("../components/TextField/images/login1_mark.png");
 
 
 class Login extends Component {
+
+//   componentDidMount = async () =>  {
+//     this.setState({
+//     Userid: await AsyncStorage.getItem(USER_ID)
+//     })
+//     // this.makeRemoteRequest();
+// }
 
     state = defaultState;
 
@@ -49,10 +57,17 @@ submit = async () => {
        const response = await this.props.mutate({
         variables: this.state.values,
     });
+    AsyncStorage.setItem(response.data.signinUser.token);
+    // console.log((response.data.signinUser.token))
     // alert('boom')
     this.props.navigation.navigate('Home');
+    
+    // console.log(this.props.navigation)    
     }
-    // await AsyncStorage.setItem("@demo/token", response.data.login.token);
+    // await AsyncStorage.setItem(USER_ID, user.id);
+    // await AsyncStorage.setItem(USER_EMAIL, user.email);
+    // await AsyncStorage.setItem(TOKEN_KEY, token);
+  
 };
 
 goToSignupPage = () => {

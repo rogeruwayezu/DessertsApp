@@ -49,6 +49,9 @@ class NewRecipe extends Component {
     // await AsyncStorage.setItem(TOKEN_KEY, response.data.signup.token);
     // this.setState(defaultState);
     this.props.navigation.navigate('Home');
+
+
+    
   };
 
   pickImage = async () => {
@@ -77,15 +80,16 @@ class NewRecipe extends Component {
       >
         <View style={{ width: 200 }}>
           <TextField value={name} name="name" onChangeText={this.onChangeText} />
-          <Button title="Pick an image from camera roll" onPress={this.pickImage} />
-          {url ? (
-            <Image source={{ uri: url }} style={{ width: 200, height: 200 }} />
-          ) : null}
+          <TextField value={url} name="url" onChangeText={this.onChangeText} />
           <Button title="Add Recipe" onPress={this.submit} />
         </View>
       </View>
     );
   }
 }
+
+
+
+
 
 export default NewRecipe;
